@@ -1,0 +1,51 @@
+body{
+    font-size: 1.6rem;
+    background-color: var(--body-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form{
+    width: 50rem;
+    background-color: var(--light-pink);
+    border: 1px solid var(--secondary-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.form__title{
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.form__firstname,
+.form__lastname,
+.form__email,
+.form__phone,
+.form__password{
+    width: 100%;
+}
+input{
+    width: 100%;
+    border: 1px solid var(--secondary-color);
+    outline: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: "Playwrite DE Grund", cursive;
+}
+.form__submit{
+    border: 1px solid var(--secondary-color);
+    background-color: transparent;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: "Playwrite DE Grund", cursive;
+    font-size: 1.8rem;
+    color: #000;
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+.form__submit:hover{
+    background: linear-gradient(45deg,#ff77776e,#ffaaaa75,#ffffff54);
+}
