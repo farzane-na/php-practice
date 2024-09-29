@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="./asset/styles/header-footer.css">
     <link rel="stylesheet" href="./asset/styles/shop.css">
     <title>shop</title>
+
+    <?php
+        if (!isset($_GET['token']) || empty($_GET['token'])) {
+        header('Location: login.php');
+        exit(); 
+        }
+    ?>
+    <script>
+        const url=new URL(window.location.href)
+        const params=new URLSearchParams(url.search)
+        const token = params.get('token');
+        localStorage.setItem("token",token)
+    </script>
 </head>
 <body>
     <svg style="display: none;">
@@ -50,7 +63,7 @@
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-manu__item">
-                        <a href="./shop.php" class="nav-menu__link nav-menu__link--active">
+                        <a href="./shop.php?token=<?php echo $_GET['token']; ?>" class="nav-menu__link nav-menu__link--active">
                             <svg>
                                 <use href="#shop"></use>
                             </svg>
@@ -58,7 +71,7 @@
                         </a>
                     </li>
                     <li class="nav-manu__item">
-                        <a href="./cart.php" class="nav-menu__link">
+                        <a href="./cart.php?token=<?php echo $_GET['token']; ?>" class="nav-menu__link">
                             <svg>
                                 <use href="#cart"></use>
                             </svg>
@@ -66,7 +79,7 @@
                         </a>
                     </li>
                     <li class="nav-manu__item">
-                        <a href="./profile.php" class="nav-menu__link">
+                        <a href="./profile.php?token=<?php echo $_GET['token']; ?>" class="nav-menu__link">
                             <svg>
                                 <use href="#user"></use>
                             </svg>
@@ -115,6 +128,6 @@
     <footer class="footer">
         <p class="copyright">Copyright © 2024 - All rights reserved.</p>
     </footer>
-    <script src="./asset/scripts/shop.js" type="module"></script>
+    <script src="./asset/scripts/shop.js"></script>
 </body>
 </html>

@@ -13,8 +13,8 @@
         $password=$_POST["password"];
         $token = bin2hex(random_bytes($tokenLength));
     
-        $SQL = "INSERT INTO users(firstname, lastname, email, phone , password,token) VALUES('$firstname', '$lastname', '$email', '$phone','$password','$token)";
-        if (mysqli_query($database, $SQL)) {
+        $SQL = "INSERT INTO users(firstname, lastname, email, phone_number , password,token) VALUES('$firstname', '$lastname', '$email', '$phone','$password','$token')";
+        if (mysqli_query($shopDB, $SQL)) {
             header("Location: shop.php?token=" . $token);
             exit();
         }else{

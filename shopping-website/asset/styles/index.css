@@ -2,8 +2,10 @@ body{
     font-size: 1.6rem;
     background-color: var(--body-color);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
     height: 100vh;
 }
 .form{
@@ -48,4 +50,12 @@ input{
 }
 .form__submit:hover{
     background: linear-gradient(45deg,#ff77776e,#ffaaaa75,#ffffff54);
+}
+.go-login,
+.go-signin{
+    color: var(--primary-color);
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

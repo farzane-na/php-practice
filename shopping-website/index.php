@@ -8,7 +8,7 @@
     <title>sign in</title>
 </head>
 <body>
-    <form action="" class="form">
+    <form action="save.php" method="POST" class="form">
         <h2 class="form__title">Sign In</h2>
         <div class="form__firstname">
             <input type="text" name="firstname" placeholder="Firstname" require>
@@ -27,5 +27,6 @@
         </div>
         <button class="form__submit">submit</button>
     </form>
+    <a href="./login.php" class="go-login">Log in page</a>
 </body>
 </html>

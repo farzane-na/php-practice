@@ -10,16 +10,14 @@
 <body>
     <form action="" class="form">
         <h2 class="form__title">Log In</h2>
-        <div class="form__lastname">
-            <input type="text" name="lastname" placeholder="Lastname" require>
-        </div>
         <div class="form__phone">
-            <input type="text" name="phone" placeholder="Phone Number" require>
+            <input class="phone" type="text" name="phone" placeholder="Phone Number" require>
         </div>
         <div class="form__password">
-            <input type="password" name="password" placeholder="Password" require>
+            <input class="password" type="password" name="password" placeholder="Password" require>
         </div>
         <button class="form__submit">submit</button>
     </form>
+    <a href="./index.php" class="go-signin">sign in page</a>
 </body>
 </html>

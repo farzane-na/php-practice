@@ -33,31 +33,31 @@
     ],
     "bag":[
         {
-            "id":1,
+            "id":6,
             "name":"bag 1",
             "price":150,
             "image":"./asset/images/bag/1.jpg"
         },
         {
-            "id":2,
+            "id":7,
             "name":"bag 2",
             "price":200,
             "image":"./asset/images/bag/2.jpg"
         },
         {
-            "id":3,
+            "id":8,
             "name":"bag 3",
             "price":250,
             "image":"./asset/images/bag/3.jpg"
         },
         {
-            "id":4,
+            "id":9,
             "name":"bag 4",
             "price":300,
             "image":"./asset/images/bag/4.jpg"
         },
         {
-            "id":5,
+            "id":10,
             "name":"bag 5",
             "price":350,
             "image":"./asset/images/bag/5.jpg"
@@ -65,31 +65,31 @@
     ],
     "autograph":[
         {
-            "id":1,
+            "id":11,
             "name":"autograph 1",
             "price":15,
             "image":"./asset/images/autograph/1.jpg"
         },
         {
-            "id":2,
+            "id":12,
             "name":"autograph 2",
             "price":20,
             "image":"./asset/images/autograph/2.jpg"
         },
         {
-            "id":3,
+            "id":13,
             "name":"autograph 3",
             "price":25,
             "image":"./asset/images/autograph/3.jpg"
         },
         {
-            "id":4,
+            "id":14,
             "name":"autograph 4",
             "price":30,
             "image":"./asset/images/autograph/4.jpg"
         },
         {
-            "id":5,
+            "id":15,
             "name":"autograph 5",
             "price":35,
             "image":"./asset/images/autograph/5.jpg"
@@ -97,31 +97,31 @@
     ],
     "stationery":[
         {
-            "id":1,
+            "id":16,
             "name":"stationery 1",
             "price":125,
             "image":"./asset/images/stationery/1.jpg"
         },
         {
-            "id":2,
+            "id":17,
             "name":"stationery 2",
             "price":220,
             "image":"./asset/images/stationery/2.jpg"
         },
         {
-            "id":3,
+            "id":18,
             "name":"stationery 3",
             "price":225,
             "image":"./asset/images/stationery/3.jpg"
         },
         {
-            "id":4,
+            "id":19,
             "name":"stationery 4",
             "price":320,
             "image":"./asset/images/stationery/4.jpg"
         },
         {
-            "id":5,
+            "id":20,
             "name":"stationery 5",
             "price":325,
             "image":"./asset/images/stationery/5.jpg"
