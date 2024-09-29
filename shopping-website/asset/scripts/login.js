@@ -22,3 +22,4 @@ const submitForm = (event) => {
 };
 
 form.addEventListener("submit", submitForm);
+console.log("hello")

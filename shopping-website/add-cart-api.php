@@ -11,10 +11,18 @@ try {
 
     // بررسی اینکه آیا درخواست با متد POST ارسال شده است
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // دریافت داده‌های ارسالی از سمت کاربر
-        $userID = $_POST['userID'];
-        $productID = $_POST['productID'];
-        $count = $_POST['count'];
+        // دریافت داده‌های ارسالی از body درخواست
+        $input = json_decode(file_get_contents('php://input'), true);
+        
+        // بررسی پارس JSON
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            echo json_encode(['status' => 'error', 'message' => 'Invalid JSON format']);
+            die();
+        }
+
+        $userID = $input['userID'];
+        $productID = $input['productID'];
+        $count = $input['count'];
 
         // بررسی اینکه همه داده‌ها ارسال شده باشد
         if (!empty($userID) && !empty($productID) && !empty($count)) {
@@ -28,10 +36,28 @@ try {
             if ($stmt->execute()) {
                 echo json_encode(['status' => 'success', 'message' => 'Product added to cart successfully']);
             } else {
-                echo json_encode(['status' => 'error', 'message' => 'Failed to add product to cart']);
+                $errorInfo = $stmt->errorInfo();
+                echo json_encode([
+                    'status' => 'error', 
+                    'message' => 'Failed to add product to cart',
+                    'error' => [
+                        'SQLSTATE' => $errorInfo[0],
+                        'Driver Error Code' => $errorInfo[1],
+                        'Driver Error Message' => $errorInfo[2]
+                    ]
+                ]);
             }
         } else {
-            echo json_encode(['status' => 'error', 'message' => 'All fields are required']);
+            $errorInfo = $stmt->errorInfo();
+            echo json_encode([
+                'status' => 'error', 
+                'message' => 'Failed to add product to cart',
+                'error' => [
+                    'SQLSTATE' => $errorInfo[0],
+                    'Driver Error Code' => $errorInfo[1],
+                    'Driver Error Message' => $errorInfo[2]
+                ]
+            ]);
         }
     }
     if ($_SERVER['REQUEST_METHOD'] == 'PUT') {

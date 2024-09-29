@@ -8,7 +8,7 @@
     <title>log in</title>
 </head>
 <body>
-    <form action="" class="form">
+    <form action="POST" class="form" onsubmit="event.preventDefault()">
         <h2 class="form__title">Log In</h2>
         <div class="form__phone">
             <input class="phone" type="text" name="phone" placeholder="Phone Number" require>
@@ -19,5 +19,6 @@
         <button class="form__submit">submit</button>
     </form>
     <a href="./index.php" class="go-signin">sign in page</a>
+    <script src="./asset/scripts/login.js"></script>
 </body>
 </html>

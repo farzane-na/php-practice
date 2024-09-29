@@ -27,51 +27,67 @@ const gettingUserData = async () => {
     });
 };
 
-const addToCart = (productID) => {
+const addNewProductToCart = (productID) => {
   let newProduct = {
     productID: productID,
     userID: userID,
     count: 1,
   };
-  let checkExistProduct = cart.find(
-    (item) => item.userID === userID && item.productID === productID
-  );
-
-  if (checkExistProduct) {
-    let updateProduct = {
-      productID: productID,
-      userID: userID,
-      count: checkExistProduct.count + 1,
-    };
-    fetch("http://localhost/task-4/add-cart-api.php", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updateProduct),
+  console.log(JSON.stringify(newProduct))
+  fetch("http://localhost/task-4/add-cart-api.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newProduct),
+  })
+    .then((res) => res.text())
+    .then((data) => {
+      console.log(data);
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    .catch(err=>{
+      console.log(err);
+      
+    })
+};
+const updateCountOfProduct = (productID) => {
+  let updateProduct = {
+    productID: productID,
+    userID: userID,
+    count: checkExistProduct.count + 1,
+  };
+  fetch("http://localhost/task-4/add-cart-api.php", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updateProduct),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    });
+};
+const addToCart = (productID) => {
+  if (cart.length === 0) {
+    addNewProductToCart(productID);
   } else {
-    fetch("http://localhost/task-4/add-cart-api.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    let checkExistProduct = cart.find(
+      (item) => item.userID === userID && item.productID === productID
+    );
+    if (checkExistProduct) {
+      updateCountOfProduct(productID);
+    } else {
+      addNewProductToCart(productID);
+    }
   }
 };
 
 const fillNoteBookSection = () => {
   noteBookSection.innerHTML = "";
   noteBook.forEach((item) => {
+    console.log(item.id);
+
     let newNoteBookTemplate = `
             <article class="section__item">
                 <div class="section_img">
