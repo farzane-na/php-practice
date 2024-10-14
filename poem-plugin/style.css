@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+.custom-text{
+    font-family: "Rubik" !important;
+    color: #6A1B9A !important;
+    font-weight: bold;
+}
+.custom-text a{
+    text-decoration: none !important;
+    color: inherit !important;
+}

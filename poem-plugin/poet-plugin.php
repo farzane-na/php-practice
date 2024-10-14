@@ -12,6 +12,11 @@
  * Domain Path:       /languages
  */
 
+function myPluginEnqueueStyles() {
+   wp_enqueue_style('footer-thankyou', plugin_dir_url(__FILE__) . '/style.css');
+}
+add_action('admin_enqueue_scripts', 'myPluginEnqueueStyles');
+
  global $poems;
  $poems=array (
     "آن شب خوش را به سادگی نپذیر!",
@@ -25,9 +30,10 @@
  function getRandomPoem(){
    global $poems;
     $randomIndex=random_int(0, count($poems)-1);
-    return  $poems[$randomIndex] ;
+    return  "<span class='custom-text' ><a href='https://farzanenazmabadi.liara.run' >".$poems[$randomIndex]."</a></span>" ;
  };
  function writePoemAfterInit(){
     return add_filter( "admin_footer_text", "getRandomPoem" );
  };
+ 
  add_action( "init", "writePoemAfterInit" );
