@@ -32,8 +32,4 @@ add_action('admin_enqueue_scripts', 'myPluginEnqueueStyles');
     $randomIndex=random_int(0, count($poems)-1);
     return  "<span class='custom-text' ><a href='https://farzanenazmabadi.liara.run' >".$poems[$randomIndex]."</a></span>" ;
  };
- function writePoemAfterInit(){
-    return add_filter( "admin_footer_text", "getRandomPoem" );
- };
- 
- add_action( "init", "writePoemAfterInit" );
+return add_filter( "admin_footer_text", "getRandomPoem" );
